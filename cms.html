@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+     <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+</head>
+<body>
+  <section>
+    <h1 class="text-4xl text-center font-extrabold bg-clip-text bg-gradient-to-br from-indigo-700 to-purple-600 text-transparent">Content management page</h1>
+  </section>
+<section class="flex flex-col items-stretch md:flex-row">
+  <!--add gallery-->
+    <form action="/add_gallery" method="post" enctype="multipart/form-data" class="max-w-4xl py-10 border border-indigo-700 mx-7 rounded-3xl flex flex-col items-center mt-12 flex-1">
+      <strong class="text-2xl font-extrabold">ADD GALLERY</strong>
+      
+      <input type="file" accept="image/*" multiple="true" id="image-upload" name="image"  class="hidden bg-indigo-700" required>
+      <label for="image-upload">
+      <i class="fas fa-image text-5xl mt-10"></i>
+      </label>
+      <button type="submit" class="h-10 w-32 bg-gradient-to-br from-indigo-700 to-purple-600 rounded-xl text-white font-extrabold mt-5">Add to GALlERY</button><br>
+     <a href="/see_gallerys">
+       
+     <strong class="text-indigo-700">See gallerys &rarr;</strong>
+     </a> 
+    </form>
+    <!--add news-->
+<form action="add_news" class="max-w-4xl py-10 border border-indigo-700 mx-7 rounded-3xl flex flex-col items-center mt-12  flex-1 px-7 box-border">
+  <strong class="text-2xl font-extrabold">Add news</strong>   
+  <h1>write in the textarea</h1>
+  <textarea placeholder="Write news" name="news" class="w-full max-w-3xl px-4 py-2 mt-4 rounded-md border border-gray-300 resize-y"  required></textarea>
+        <button type="submit" class="h-10 w-32 bg-gradient-to-br from-indigo-700 to-purple-600 rounded-xl text-white font-extrabold mt-5">Add to news</button><br>
+             <a href="/see_news">
+       
+     <strong class="text-indigo-700">See news &rarr;</strong>
+     </a> 
+</form>
+</section>
+
+
+<section class="flex flex-col items-stretch md:flex-row">
+  <!--add group-->
+  <form id="add_group" class="max-w-4xl py-10 border border-indigo-700 mx-7 rounded-3xl flex flex-col gap-5 items-center mt-12  flex-1 px-7 box-border">
+<strong class="text-2xl font-extrabold">Add group</strong>
+
+<input type="text" placeholder="Group name *" name="group_name" class="border" required>
+<input type="text" placeholder="Member name *" name="name" class="border" required>
+
+<input type="number" placeholder="Grade *" name="grade" class="border" required>
+
+<input type="email" placeholder="Email *" name="email" class="border" required>
+
+<input type="number" placeholder="ID *" name="id" class="border" required>
+
+<button id="collect_group" class="h-10 w-32 bg-gradient-to-br from-indigo-700 to-purple-600 rounded-xl text-white font-extrabold mt-5">Add</button>
+<button id="create_group" class="h-10 w-32 bg-gradient-to-br from-indigo-700 to-purple-600 rounded-xl text-white font-extrabold">create group</button>
+</form>
+
+<!--add club-->
+  <form id="add_club" class="max-w-4xl py-10 border border-indigo-700 mx-7 rounded-3xl flex flex-col gap-5 items-center mt-12  flex-1 px-7 box-border">
+<strong class="text-2xl font-extrabold">Add club</strong>
+
+<input type="text" placeholder="Club name *" required name="club_name" class="border">
+<input type="text" placeholder="Member name *" required name="name" class="border">
+
+<input type="number" placeholder="Grade *" required name="grade" class="border">
+
+<input type="email" placeholder="Email *" required name="email" class="border">
+
+<input type="number" placeholder="ID *" required name="id" class="border">
+
+        <button id="collect_club" class="h-10 w-32 bg-gradient-to-br from-indigo-700 to-purple-600 rounded-xl text-white font-extrabold mt-5">Add</button>
+        <button id="create_club" class="h-10 w-32 bg-gradient-to-br from-indigo-700 to-purple-600 rounded-xl text-white font-extrabold ">Create club</button>
+</form>
+
+</section>
+
+<!--update club and group-->
+
+<section class="flex flex-col items-stretch md:flex-row">
+  <!--update group-->
+  <form action="/update_group" method="post" class="max-w-4xl py-10 border border-indigo-700 mx-7 rounded-3xl flex flex-col gap-5 items-center mt-12  flex-1 px-7 box-border">
+<strong class="text-2xl font-extrabold">Update group</strong>
+
+<input type="text" placeholder="Group name  *" name="group_name" class="border" required>
+<input type="number" placeholder=" Student's Previous ID  *" 
+name="id" class="border" required>
+
+<input type="text" placeholder="Member name" name="name" class="border">
+
+<input type="number" placeholder="Grade" name="grade" class="border">
+
+<input type="email" placeholder="Email" name="email" class="border">
+
+<input type="number" placeholder="ID" name="id" class="border">
+
+        <button type="submit" class="h-10 w-32 bg-gradient-to-br from-indigo-700 to-purple-600 rounded-xl text-white font-extrabold mt-5">Update group</button>
+</form>
+
+<!--add club-->
+  <form action="/update_club" class="max-w-4xl py-10 border border-indigo-700 mx-7 rounded-3xl flex flex-col gap-5 items-center mt-12  flex-1 px-7 box-border">
+<strong class="text-2xl font-extrabold">Update club</strong>
+
+<input type="text" placeholder="club name  *" name="club_name" class="border" required>
+<input type="number" placeholder=" Student's Previous ID  *" name="id" class="border" required>
+
+<input type="text" placeholder="Member name" name="name" class="border">
+
+<input type="number" placeholder="Grade" name="grade" class="border">
+
+<input type="email" placeholder="Email" name="email" class="border">
+
+<input type="number" placeholder="ID" name="id" class="border">
+
+        <button type="submit" class="h-10 w-32 bg-gradient-to-br from-indigo-700 to-purple-600 rounded-xl text-white font-extrabold mt-5">Update club</button>
+</form>
+
+
+
+  <form action="/see_g_c_info" class="max-w-4xl py-10 border border-indigo-700 mx-7 rounded-3xl flex flex-col gap-5 items-center mt-12  flex-1 px-7 box-border">
+  <strong class="text-2xl font-extrabold">See club or group info</strong>
+    
+  <input type="text" placeholder="Write the group or club name" name="g_c_name" class="border" required> 
+  <div>
+  <input type="radio" name="group_club" value="group" required> &nbsp; &nbsp;
+  <label for="group_club" class="font-extrabold text-xl">Group</label>
+  </div>
+  
+  <div>
+  <input type="radio" name="group_club" value="club" required>  &nbsp; &nbsp;
+      <label for="group_club" class="font-extrabold text-xl">Club</label>
+  </div>
+  
+ <button type="submit" class="h-10 w-32 bg-gradient-to-br from-indigo-700 to-purple-600 rounded-xl text-white font-extrabold mt-5">Update club</button>
+  </form>
+  
+</section>
+
+
+
+</body>
+</html>
